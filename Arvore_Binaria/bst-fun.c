@@ -107,8 +107,6 @@ void posorder(node *n)
 // Deleta
 node *deleta(node* n, int valor)
 {
-  int teste = 0;
-
     // Procura onde está o valor
     if (!n)
         return NULL;
@@ -118,9 +116,6 @@ node *deleta(node* n, int valor)
         n->right = deleta(n->right, valor);
     else
     {
-      // Encontra o valor a ser excluído
-      teste = 1;
-
         // Raiz sem filhos
         if (n->left == NULL && n->right == NULL)
         {
@@ -157,11 +152,6 @@ node *deleta(node* n, int valor)
             n->left = deleta(n->left,valor);
         }
     }
-
-    if (teste == 1)
-      printf("\nValor deletado.\n");
-    else
-      printf("\nValor não encontrado.\n");
 
     return n;
 }
@@ -234,9 +224,7 @@ void menu(node *n)
       case 3:
         printf("\nDigite o número que deseja remover: ");
         scanf("%i", &num);
-
         n = deleta(n, num);
-
         break;
       default:
         printf("Opção inválida, favor digitar uma opção de 1 a 3.\n");
