@@ -112,9 +112,9 @@ node *deleta(node* n, int valor)
     // Procura onde está o valor
     if (!n)
         return NULL;
-    else if (n->key > valor)
-        n->left = deleta(n->left, valor);
     else if (n->key < valor)
+        n->left = deleta(n->left, valor);
+    else if (n->key > valor)
         n->right = deleta(n->right, valor);
     else
     {
